@@ -1,0 +1,81 @@
+:root {
+  --ink: #1b2a41;
+  --paper: #f3f6fa;
+  --accent: #0f8b8d;
+  --accent-dark: #0b6b6d;
+  --correct: #2e7d4f;
+  --correct-bg: #e4f4ea;
+  --wrong: #c0392b;
+  --wrong-bg: #fbe7e4;
+  --border: #d3dbe6;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.quiz-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+}
+
+/* Buttons */
+.btn-primary {
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent-dark);
+  --bs-btn-hover-border-color: var(--accent-dark);
+  --bs-btn-disabled-bg: var(--accent);
+  --bs-btn-disabled-border-color: var(--accent);
+}
+
+/* Progress bar */
+.progress { height: 8px; background: var(--border); }
+.progress-bar { background: var(--accent); transition: width 0.3s ease; }
+
+/* Timer */
+.timer-badge {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+}
+.timer-badge.low {
+  color: var(--wrong);
+  border-color: var(--wrong);
+  background: var(--wrong-bg);
+}
+
+/* Answer options */
+.option-btn {
+  text-align: left;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 1rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+.option-btn:hover:not(:disabled) { border-color: var(--accent); background: var(--paper); }
+.option-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.option-btn:disabled { cursor: not-allowed; }
+.option-btn.correct { border-color: var(--correct); background: var(--correct-bg); }
+.option-btn.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+
+/* Result */
+.result-score { font-size: 3rem; font-weight: 800; color: var(--accent); }
+
+@media (max-width: 576px) {
+  .quiz-card { padding: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
